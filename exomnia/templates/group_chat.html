@@ -424,6 +424,9 @@
         <div class="grp-name">{{ group_name }}</div>
         <div class="grp-meta" onclick="openMembersPanel()" id="grpMeta">Loading members…</div>
     </div>
+    <button class="grp-info-btn" onclick="openWhiteboard()" title="Whiteboard" style="margin-right:2px;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 18v3"/><path d="M7 9l3 3-3 3"/></svg>
+    </button>
     <button class="grp-info-btn" onclick="openMembersPanel()" title="Group info">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
     </button>
@@ -598,6 +601,10 @@
 
     // ── Helpers ──────────────────────────────────────────────────
     function goBack() { window.history.back(); }
+
+    function openWhiteboard() {
+        window.location.href = '/whiteboard/group/' + groupId + '?phone=' + encodeURIComponent(myPhone);
+    }
 
     function showGrpToast(msg, dur=3000) {
         const t = document.createElement('div');
