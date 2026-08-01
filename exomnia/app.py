@@ -9,6 +9,7 @@ from .db import init_db, get_db_connection, return_db_connection
 # Side-effecting imports: these register routes & socket handlers.
 from . import routes  # noqa: F401
 from . import sockets  # noqa: F401
+from . import whiteboard_sockets  # noqa: F401 — registers wb_join/wb_stroke/etc.
 
 
 def create_app():
