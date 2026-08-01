@@ -140,6 +140,10 @@ def on_disconnect(reason=None):
         for key in list(typing_status.keys()):
             if typing_status.get(key):
                 del typing_status[key]
+
+        # Drop this sid from any whiteboard(s) it had open.
+        from .whiteboard_sockets import handle_disconnect as _wb_handle_disconnect
+        _wb_handle_disconnect(sid)
     except Exception as e:
         print(f"Error in disconnect: {e}")
 
